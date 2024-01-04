@@ -1,0 +1,19 @@
+
+# .gitignore
+
+# Virtual environment
+venv/
+
+# Python bytecode
+__pycache__/
+
+# Compiled files
+*.pyc
+*.pyo
+*.pyd
+
+# Cached data
+.cache
+
+# .env file containing sensitive information
+.env
