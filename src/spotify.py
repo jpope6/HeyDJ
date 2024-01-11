@@ -6,16 +6,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 SCOPEs = [
-    'app-remote-control',
-    'user-read-playback-state',
-    'user-modify-playback-state',
-    'user-read-currently-playing'
+    "app-remote-control",
+    "user-read-playback-state",
+    "user-modify-playback-state",
+    "user-read-currently-playing",
 ]
 
 
 class Spotify:
-
-
     def __init__(self) -> None:
         self.spotify = self.authenticateSpotify()
 
@@ -24,13 +22,15 @@ class Spotify:
             client_id=os.getenv("SPOTIPY_CLIENT_ID"),
             client_secret=os.getenv("SPOTIPY_CLIENT_SECRET"),
             redirect_uri=os.getenv("SPOTIPY_REDIRECT_URI"),
-            scope=SCOPEs
+            scope=SCOPEs,
         )
         sp = spotipy.Spotify(auth_manager=auth)
 
         return sp
 
     def runCommand(self, command):
+        command = command.lower()
+
         if "start" in command:
             self.spotify.start_playback()
             print("play")
