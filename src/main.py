@@ -7,12 +7,12 @@ class Main:
     def __init__(self) -> None:
         self.spotify = Spotify()
         self.chatGPT = ChatGPT()
+        self.speech = Speech()
         self.running = True
 
     def run(self):
         while self.running:
-            self.speech = Speech()
-            self.speech.obtainAudioFromMicrophone()
+            self.speech.listen()
             command = self.speech.recognizeSpeech()
 
             if command:
