@@ -23,10 +23,8 @@ class Speech:
 
     def isPhraseDetected(self):
         try:
-            command = self.recognizer.recognize_whisper(self.audio)
-
-            if self.phrase in command.lower():
-                return True
+            command = self.recognizer.recognize_whisper(self.audio, language="english")
+            return self.phrase in command.lower()
 
         except sr.UnknownValueError:
             pass
@@ -41,11 +39,11 @@ class Speech:
             command = self.recognizer.recognize_whisper(self.audio)
 
             # regex to remove everything before and including the phrase "hey dj"
-            regex_pattern = rf".*?{re.escape(self.phrase)}"
-            modified_command = re.sub(regex_pattern, "", command.lower())
+            # regex_pattern = rf".*?{re.escape(self.phrase)}"
+            # modified_command = re.sub(regex_pattern, "", command.lower())
 
-            print("You said: " + modified_command)
-            return modified_command
+            print("You said: " + command)
+            return command
         except sr.UnknownValueError:
             print("Could not understand audio")
             return None

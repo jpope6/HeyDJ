@@ -1,20 +1,23 @@
 from speech import Speech
 from spotify import Spotify
+from chatgpt import ChatGPT
 
 
 class Main:
     def __init__(self) -> None:
-        self.speech = Speech()
         self.spotify = Spotify()
+        self.chatGPT = ChatGPT()
         self.running = True
 
     def run(self):
         while self.running:
+            self.speech = Speech()
             self.speech.obtainAudioFromMicrophone()
             command = self.speech.recognizeSpeech()
 
             if command:
-                self.spotify.runCommand(command)
+                ai_response = self.chatGPT.sendMessageToAI(command)
+                self.spotify.runCommand(ai_response)
 
 
 def main():
