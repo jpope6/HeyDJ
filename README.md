@@ -22,9 +22,9 @@ HeyDJ is a voice controlled assistant for Spotify. Just say the phrase "Hey DJ" 
 4. Set the following variables within your `.env` file:
 
    ```env
-    SPOTIFY_CLIENT_ID='Your Spotify Client ID'
-    SPOTIFY_CLIENT_SECRET='Your Spotify Client Secret'
-    SPOTIFY_REDIRECT_URI=http://localhost/
+   SPOTIFY_CLIENT_ID='Your Spotify Client ID'
+   SPOTIFY_CLIENT_SECRET='Your Spotify Client Secret'
+   SPOTIFY_REDIRECT_URI=http://localhost/
    ```
 
   NOTE: Spotify Client ID and Spotify Client Secret can be found in your Spotify Developer Application settings
