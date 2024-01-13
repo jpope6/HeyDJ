@@ -17,7 +17,7 @@ HeyDJ is a voice controlled assistant for Spotify. Just say the phrase "Hey DJ" 
 ## First Time Setup
 
 1. In the root directory of the application, create a `.env` file
-2. Create a Spotify Developer Application [here](https://developer.spotify.com/)
+2. Create a Spotify Developer Application [here](https://developer.spotify.com/){:target="_blank"}
 3. Within the new Spotify Developer Application settings, set the `redirect URI` to `http://localhost/`
 4. Set the following variables within your `.env` file:
 
@@ -28,8 +28,8 @@ HeyDJ is a voice controlled assistant for Spotify. Just say the phrase "Hey DJ" 
   ```
    **NOTE:** Spotify Client ID and Spotify Client Secret can be found in your Spotify Developer Application settings
 
-5. Create a OpenAI API key [here](https://openai.com/)
-    - For instructions on creating the API key, click [here](https://www.maisieai.com/help/how-to-get-an-openai-api-key-for-chatgpt)
+5. Create a OpenAI API key [here](https://openai.com/){:target="_blank"}
+    - For instructions on creating the API key, click [here](https://www.maisieai.com/help/how-to-get-an-openai-api-key-for-chatgpt){:target="_blank"}
 
 6. Set the following variables within your `.env` file:
 
@@ -37,7 +37,7 @@ HeyDJ is a voice controlled assistant for Spotify. Just say the phrase "Hey DJ" 
   OPENAI_API_KEY='Your OpenAI API key'
   ```
 
-7. Sign up/ Sign In to your Picovoice account [here](https://picovoice.ai/)
+7. Sign up/ Sign In to your Picovoice account [here](https://picovoice.ai/){:target="_blank"}
 8. Set the following variables within your `.env` file:
 
   ```env
