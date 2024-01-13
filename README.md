@@ -63,7 +63,7 @@ The following are commands that your DJ assistant will understand. Remember, you
 - `play a song or artist`: Play a specific song or artist
   - Example: "Hey DJ, play I Gotta Feeling by The Black Eyed Peas."
 - `add song to queue`: Add a song to the queue for continuous playback
-  - Example: "Hey DJ, add I Gotta Feeling by The Black Eyed Peas to the queue."
+  - Example: "Hey DJ, add Boom Boom Pow by The Black Eyed Peas to the queue."
 - `skip song`: Skip to the next song in the playlist.
   - Example: "Hey DJ, skip this song."
 - `previous song`: Go back to the previous song.
