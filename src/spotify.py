@@ -39,7 +39,7 @@ class Spotify:
                 self.playTrack(track_uri)
             case "pause":
                 self.pauseTrack()
-            case "add_to_queue":
+            case "add_to_queue" | "add to queue":
                 track_uri = self.getTrackURI(command.get("song"), command.get("artist"))
                 self.addTrackToQueue(track_uri)
             case "skip" | "next":
@@ -54,7 +54,7 @@ class Spotify:
 
             results = self.spotify.search(q=f"{track_name} {artist_name}", type="track")
 
-            if results["tracks"]["items"]:
+            if results and results["tracks"]["items"]:
                 # Get the URI of the first track in the search results
                 track_uri = results["tracks"]["items"][0]["uri"]
                 return track_uri
@@ -106,3 +106,15 @@ class Spotify:
 
         except spotipy.SpotifyException as e:
             print(f"Spotify API error in previousTrack: {e}")
+
+    def changeVolume(self, volume_percentage):
+        self.spotify.volume(volume_percentage)
+
+    def getCurrentVolume(self) -> int:
+        current_playback = self.spotify.current_playback()
+
+        if not current_playback:
+            return 0
+
+        current_volume = current_playback["device"]["volume_percent"]
+        return current_volume

@@ -9,29 +9,37 @@ load_dotenv()
 
 
 class Speech:
-    def __init__(self) -> None:
+    def __init__(self, spotify) -> None:
         self.recognizer = sr.Recognizer()
         self.audio = None
-
-        self.phrase = "hey dj"
 
         self.porcupine = pvporcupine.create(
             access_key=os.getenv("PORCUPINE_ACCESS_KEY"),
             keyword_paths=["./Hey-DJ_en_linux_v3_0_0.ppn"],
         )
         self.recorder = PvRecorder(frame_length=512)
+        self.spotify = spotify
 
     def listen(self):
         self.recorder.start()
         audio_frame = self.recorder.read()
         keyword_index = self.porcupine.process(audio_frame)
         if keyword_index == 0:  # Wake word indentified
-            print("obtaining audio")
+            print("Listening...")
             self.obtainAudioFromMicrophone()
 
+
     def obtainAudioFromMicrophone(self):
+        current_volume = self.spotify.getCurrentVolume()
+
+        # Mute spotify so the microphone does not pick it up
+        self.spotify.changeVolume(0) 
+
         with sr.Microphone() as source:
             self.audio = self.recognizer.listen(source)
+
+        # Reset to original volume
+        self.spotify.changeVolume(current_volume)
 
     def recognizeSpeech(self):
         if not self.audio:

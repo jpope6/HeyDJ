@@ -7,7 +7,7 @@ class Main:
     def __init__(self) -> None:
         self.spotify = Spotify()
         self.chatGPT = ChatGPT()
-        self.speech = Speech()
+        self.speech = Speech(self.spotify)
         self.running = True
 
     def run(self):
@@ -18,6 +18,10 @@ class Main:
             if command:
                 ai_response = self.chatGPT.sendMessageToAI(command)
                 self.spotify.runCommand(ai_response)
+
+        # Clean Up
+        self.speech.porcupine.delete()
+        self.speech.recorder.delete()
 
 
 def main():

@@ -18,15 +18,15 @@ class ChatGPT:
             {"role": "system", "content": MY_PROMPT},
         ]
 
-    def sendMessageToAI(self, message: str) -> str:
+    def sendMessageToAI(self, message: str):
         if len(message) > 150:
-            return None
+            return
 
         user_message = {"role": "user", "content": message}
 
         self.messages.append(user_message)
 
-        api_response: dict = self.client.chat.completions.create(
+        api_response = self.client.chat.completions.create(
             model="gpt-3.5-turbo-1106",
             response_format={"type": "json_object"},
             messages=self.messages,
