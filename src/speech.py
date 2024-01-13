@@ -14,7 +14,7 @@ class Speech:
         self.audio = None
 
         self.porcupine = pvporcupine.create(
-            access_key=os.getenv("PORCUPINE_ACCESS_KEY"),
+            access_key=os.getenv("PICOVOICE_ACCESS_KEY"),
             keyword_paths=["./Hey-DJ_en_linux_v3_0_0.ppn"],
         )
         self.recorder = PvRecorder(frame_length=512)
@@ -28,12 +28,11 @@ class Speech:
             print("Listening...")
             self.obtainAudioFromMicrophone()
 
-
     def obtainAudioFromMicrophone(self):
         current_volume = self.spotify.getCurrentVolume()
 
         # Mute spotify so the microphone does not pick it up
-        self.spotify.changeVolume(0) 
+        self.spotify.changeVolume(0)
 
         with sr.Microphone() as source:
             self.audio = self.recognizer.listen(source)
