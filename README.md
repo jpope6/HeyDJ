@@ -1,6 +1,6 @@
 # HeyDJ
 
-HeyDJ is a voice controlled assistant for Spotify. Just say the phrase "Hey DJ" followed by a command to control your Spotify using voice commands!
+HeyDJ is a voice controlled assistant for Spotify. Just say the phrase "Hey DJ" followed by a command to control your Spotify using voice commands! The command you give will be processed by OpenAI, enabling the assistant to understand and interpret your command without the need for an exact phrase match. Experience a seamless and intuitive interaction as HeyDJ combines voice recognition and OpenAI's powerful language processing, providing a natural and personalized Spotify control experience.
 
 ## Prerequisites
 
@@ -51,3 +51,20 @@ HeyDJ is a voice controlled assistant for Spotify. Just say the phrase "Hey DJ" 
 3. `cd src/`
 4. `python3 main.py`
 5. Say "Hey DJ" followed by your command to start using the assistant!
+
+## Commands
+
+The following are commands that your DJ assistant will understand. Remember, you do NOT have to say the commands exactly as they are written; OpenAI will interpret your command intelligently.
+
+- `play/resume`: Resume playback or play a specific song.
+    Example: "Hey DJ, play my music."
+- `pause`: Pause the currently playing song
+    Example: "Hey DJ, pause the music."
+- `play a song or artist`: Play a specific song or artist
+    Example: "Hey DJ, play I Gotta Feeling by The Black Eyed Peas."
+- `add song to queue`: Add a song to the queue for continuous playback
+    Example: "Hey DJ, add I Gotta Feeling by The Black Eyed Peas to the queue."
+- `skip song`: Skip to the next song in the playlist.
+    Example: "Hey DJ, skip this song."
+- `previous song`: Go back to the previous song.
+    Example: "Hey DJ, play the previous track."
