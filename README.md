@@ -18,7 +18,7 @@ HeyDJ is a voice controlled assistant for Spotify. Just say the phrase "Hey DJ" 
 
 1. In the root directory of the application, create a `.env` file
 2. Create a Spotify Developer Application [here](https://developer.spotify.com/)
-3. Within the new Spotify Developer Application settings, set the redirect URI to "http://localhost/"
+3. Within the new Spotify Developer Application settings, set the `redirect URI` to `http://localhost/`
 4. Set the following variables within your `.env` file:
 
    ```env
