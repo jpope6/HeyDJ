@@ -21,16 +21,15 @@ HeyDJ is a voice controlled assistant for Spotify. Just say the phrase "Hey DJ" 
 3. Within the new Spotify Developer Application settings, set the `redirect URI` to `http://localhost/`
 4. Set the following variables within your `.env` file:
 
-   ```env
-   SPOTIFY_CLIENT_ID='Your Spotify Client ID'
-   SPOTIFY_CLIENT_SECRET='Your Spotify Client Secret'
-   SPOTIFY_REDIRECT_URI=http://localhost/
-   ```
-
-  NOTE: Spotify Client ID and Spotify Client Secret can be found in your Spotify Developer Application settings
+  ```env
+  SPOTIFY_CLIENT_ID='Your Spotify Client ID'
+  SPOTIFY_CLIENT_SECRET='Your Spotify Client Secret'
+  SPOTIFY_REDIRECT_URI=http://localhost/
+  ```
+    **NOTE:** Spotify Client ID and Spotify Client Secret can be found in your Spotify Developer Application settings
 
 5. Create a OpenAI API key [here](https://openai.com/)
-  - For instructions on creating the API key, click [here](https://www.maisieai.com/help/how-to-get-an-openai-api-key-for-chatgpt)
+    - For instructions on creating the API key, click [here](https://www.maisieai.com/help/how-to-get-an-openai-api-key-for-chatgpt)
 
 6. Set the following variables within your `.env` file:
 
