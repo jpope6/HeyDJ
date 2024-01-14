@@ -36,21 +36,22 @@ class Spotify:
         artist = command.get("artist")
         # print(command)
 
-        match command.get("action"):
-            case "play" | "resume":
-                track_uri = self.getTrackURI(song, artist)
-                self.playTrack(track_uri, song, artist)
-            case "pause":
-                self.pauseTrack()
-            case "add_to_queue" | "add to queue":
-                track_uri = self.getTrackURI(song, artist)
-                self.addTrackToQueue(track_uri, song, artist)
-            case "skip" | "next":
-                self.skipSong()
-            case "previous" | "back":
-                self.previousTrack()
-            case "exit" | "quit":
-                self.running = False
+        action = command.get("action")
+
+        if action in {"play", "resume"}:
+            track_uri = self.getTrackURI(song, artist)
+            self.playTrack(track_uri, song, artist)
+        elif action == "pause":
+            self.pauseTrack()
+        elif action in {"add_to_queue", "add to queue"}:
+            track_uri = self.getTrackURI(song, artist)
+            self.addTrackToQueue(track_uri, song, artist)
+        elif action in {"skip", "next"}:
+            self.skipSong()
+        elif action in {"previous", "back"}:
+            self.previousTrack()
+        elif action in {"exit", "quit"}:
+            self.running = False
 
     def getTrackURI(self, track_name, artist_name):
         try:
