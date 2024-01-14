@@ -2,6 +2,8 @@
 
 HeyDJ is a voice controlled assistant for Spotify. Just say the phrase "Hey DJ" followed by a command to control your Spotify using voice commands! The command you give will be processed by OpenAI, enabling the assistant to understand and interpret your command without the need for an exact phrase match. Experience a seamless and intuitive interaction as HeyDJ combines voice recognition and OpenAI's powerful language processing, providing a natural and personalized Spotify control experience.
 
+![](https://github.com/jpope6/HeyDJ/blob/main/src/images/HeyDJ.gif)
+
 ## Prerequisites
 
 - Python 3.x
