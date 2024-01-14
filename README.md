@@ -80,7 +80,7 @@ The following are commands that your DJ assistant will understand. Remember, you
 
 ## Contributing
 
-I appreciate your interest in contributing to HeyDJ! While, for the time being, I'm keeping this project as a solo endeavor, I'm always open to hearing your suggestions and feedback. If you have ideas or improvements in mind, feel free to share them – your input is valuable. Thank you for your understanding!
+I appreciate your interest in contributing to HeyDJ! While for the time being, I'm keeping this project as a solo endeavor, I'm always open to hearing your suggestions and feedback. If you have ideas or improvements in mind, feel free to share them – your input is valuable. Thank you for your understanding!
 
 ## License
 
