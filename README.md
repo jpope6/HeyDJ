@@ -68,3 +68,5 @@ The following are commands that your DJ assistant will understand. Remember, you
   - Example: "Hey DJ, skip this song."
 - `previous song`: Go back to the previous song.
   - Example: "Hey DJ, play the previous track."
+- `exit`: Exit the application.
+  - Example: "Hey DJ, exit."
