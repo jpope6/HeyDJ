@@ -17,9 +17,20 @@ HeyDJ is a voice controlled assistant for Spotify. Just say the phrase "Hey DJ" 
 ```bash
 git clone https://github.com/your-username/HeyDJ.git
 ```
-3. Navigate to the project directory: `cd HeyDJ`
-4. Create and activate a virtual environment (optional but recommended): 
-5. Install dependencies: `pip install -r requirements.txt`
+2. Navigate to the project directory:
+```bash
+cd HeyDJ
+```
+3. Create and activate a virtual environment (optional but recommended): 
+```bash
+python -m venv venv
+source venv/bin/activate # On Linux/Mac
+venv\Scripts\activate.bat # On Windows
+```
+4. Install dependencies: 
+```bash
+pip install -r requirements.txt
+```
 
 Please be patient, as the installation process involves downloading and setting up the required language processing libraries.
 
