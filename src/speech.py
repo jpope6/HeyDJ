@@ -25,7 +25,7 @@ class Speech:
         audio_frame = self.recorder.read()
         keyword_index = self.porcupine.process(audio_frame)
         if keyword_index == 0:  # Wake word indentified
-            print("Listening...")
+            print("\nListening...")
             self.obtainAudioFromMicrophone()
 
     def obtainAudioFromMicrophone(self):

@@ -17,6 +17,7 @@ SCOPEs = [
 class Spotify:
     def __init__(self) -> None:
         self.spotify = self.authenticateSpotify()
+        self.running = True
 
     def authenticateSpotify(self):
         auth = SpotifyOAuth(
@@ -31,21 +32,25 @@ class Spotify:
 
     def runCommand(self, json_command):
         command = json.loads(json_command)
-        print(command)
+        song = command.get("song")
+        artist = command.get("artist")
+        # print(command)
 
         match command.get("action"):
             case "play" | "resume":
-                track_uri = self.getTrackURI(command.get("song"), command.get("artist"))
-                self.playTrack(track_uri)
+                track_uri = self.getTrackURI(song, artist)
+                self.playTrack(track_uri, song, artist)
             case "pause":
                 self.pauseTrack()
             case "add_to_queue" | "add to queue":
-                track_uri = self.getTrackURI(command.get("song"), command.get("artist"))
-                self.addTrackToQueue(track_uri)
+                track_uri = self.getTrackURI(song, artist)
+                self.addTrackToQueue(track_uri, song, artist)
             case "skip" | "next":
                 self.skipSong()
             case "previous" | "back":
                 self.previousTrack()
+            case "exit" | "quit":
+                self.running = False
 
     def getTrackURI(self, track_name, artist_name):
         try:
@@ -66,12 +71,21 @@ class Spotify:
             print(f"Spotify API error in getTrackURI: {e}")
             return None
 
-    def playTrack(self, track_uri):
+    def playTrack(self, track_uri, song, artist):
         try:
             if track_uri:  # User has requested a specific song
                 self.spotify.start_playback(uris=[track_uri], position_ms=0)
+
+                if song and artist:
+                    print(f"Now playing {song} by {artist}.")
+                elif song:
+                    print(f"Now playing {song}.")
+                elif artist:
+                    print(f"Now playing {artist}.")
+
             else:  # User has not requested any specific song
                 self.spotify.start_playback()
+                print("Resuming playback.")
 
         except spotipy.SpotifyException as e:
             print(f"Spotify API error in playTrack: {e}")
@@ -79,16 +93,24 @@ class Spotify:
     def pauseTrack(self):
         try:
             self.spotify.pause_playback()
+            print("Pausing playback.")
 
         except spotipy.SpotifyException as e:
             print(f"Spotify API error in pauseTrack: {e}")
 
-    def addTrackToQueue(self, track_uri):
+    def addTrackToQueue(self, track_uri, song, artist):
         try:
             if not track_uri:
                 return
 
             self.spotify.add_to_queue(uri=track_uri)
+
+            if song and artist:
+                print(f"Adding {song} by {artist} to the queue.")
+            elif song:
+                print(f"Adding {song} to the queue.")
+            elif artist:
+                print(f"Adding {artist} to the queue.")
 
         except spotipy.SpotifyException as e:
             print(f"Spotify API error in addTrackToQueue: {e}")
@@ -96,6 +118,7 @@ class Spotify:
     def skipSong(self):
         try:
             self.spotify.next_track()
+            print("Skipping song...")
 
         except spotipy.SpotifyException as e:
             print(f"Spotify API error in skipSong: {e}")
@@ -103,6 +126,7 @@ class Spotify:
     def previousTrack(self):
         try:
             self.spotify.previous_track()
+            print("Playing previous song...")
 
         except spotipy.SpotifyException as e:
             print(f"Spotify API error in previousTrack: {e}")

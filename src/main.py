@@ -2,16 +2,24 @@ from speech import Speech
 from spotify import Spotify
 from chatgpt import ChatGPT
 
+ASCII_ART = """
+  _   _              ____       _ 
+ | | | | ___ _   _   |  _ \    | |
+ | |_| |/ _ \ | | |  | | | |_  | |
+ |  _  |  __/ |_| |  | |_| | |_| |
+ |_| |_|\___|\__, |  |____/ \___/ 
+             |___/               
+"""
+
 
 class Main:
     def __init__(self) -> None:
         self.spotify = Spotify()
         self.chatGPT = ChatGPT()
         self.speech = Speech(self.spotify)
-        self.running = True
 
     def run(self):
-        while self.running:
+        while self.spotify.running:
             self.speech.listen()
             command = self.speech.recognizeSpeech()
 
@@ -25,6 +33,11 @@ class Main:
 
 
 def main():
+    print(ASCII_ART)
+    print("Your personal AI powered Spotify assistant.")
+    print('Say "Hey DJ" followed by a command to control your Spotify!')
+    print("To exit the program, just saying 'Hey DJ, exit.'")
+
     m = Main()
     m.run()
 
