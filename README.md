@@ -72,3 +72,16 @@ The following are commands that your DJ assistant will understand. Remember, you
   - Example: "Hey DJ, play the previous track."
 - `exit`: Exit the application.
   - Example: "Hey DJ, exit."
+
+## Future plans
+
+- Add more commands
+- Improve User Interface
+
+## Contributing
+
+I appreciate your interest in contributing to HeyDJ! While, for the time being, I'm keeping this project as a solo endeavor, I'm always open to hearing your suggestions and feedback. If you have ideas or improvements in mind, feel free to share them – your input is valuable. Thank you for your understanding!
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
