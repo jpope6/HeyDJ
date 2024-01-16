@@ -34,7 +34,7 @@ class Spotify:
         command = json.loads(json_command)
         song = command.get("song")
         artist = command.get("artist")
-        print(command)
+        # print(command)
 
         action = command.get("action")
 
