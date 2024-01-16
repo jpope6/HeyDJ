@@ -64,6 +64,9 @@ Please be patient, as the installation process involves downloading and setting 
   PICOVOICE_ACCESS_KEY='Your Picovoice Access key'
   ```
 
+9. The first time you run HeyDJ, Spotipy will initiate the authentication process and redirect you to a URL. Open the provided URL in your browser, and Spotipy will prompt you to copy and paste the resulting URL back into the HeyDJ program. This step is part of Spotipy's authentication process and only needs to be done the first time you run HeyDJ.
+
+
 ## Usage
 
 1. Open up Spotify on your computer and have some music playing.
