@@ -2,12 +2,19 @@ from openai import OpenAI
 
 
 MY_PROMPT = """
-Given a user's spoken command related to Spotify playback control 
-(e.g., play a specific track, pause, resume, add to queue, skip song), 
+Given a user's spoken command related to Spotify playback control, 
 generate the corresponding JSON format for the Spotify API. 
-The user's command might include details such as the action 
-(play, pause, resume, add to queue), song name, artist name, etc. 
-Ensure the JSON output has the fields: action, song, artist.
+The supported commands are:
+
+- play
+- pause
+- resume
+- add to queue
+- skip
+- previous
+- exit/quit
+
+Ensure the JSON output has the fields: action, song, and artist.
 """
 
 

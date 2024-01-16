@@ -4,6 +4,7 @@ import pvporcupine
 from pvrecorder import PvRecorder
 import os
 from dotenv import load_dotenv
+import platform
 
 load_dotenv()
 
@@ -13,10 +14,23 @@ class Speech:
         self.recognizer = sr.Recognizer()
         self.audio = None
 
+        keyword_file_path = ""
+
+        if platform.system() == "Linux":
+            keyword_file_path = "./training-data/Hey-DJ_en_linux_v3_0_0.ppn"
+        elif platform.system() == "Windows":
+            keyword_file_path = "./training-data/Hey-DJ_en_windows_v3_0_0.ppn"
+        elif platform.system() == "Darwin":  # macOS
+            keyword_file_path = "./training-data/Hey-DJ_en_mac_v3_0_0.ppn"
+        else:
+            # Handle other operating systems or raise an exception if not supported
+            raise Exception("Unsupported operating system")
+        
         self.porcupine = pvporcupine.create(
             access_key=os.getenv("PICOVOICE_ACCESS_KEY"),
-            keyword_paths=["./Hey-DJ_en_linux_v3_0_0.ppn"],
+            keyword_paths=[keyword_file_path],
         )
+
         self.recorder = PvRecorder(frame_length=512)
         self.spotify = spotify
 
