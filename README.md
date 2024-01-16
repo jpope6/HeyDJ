@@ -6,7 +6,7 @@ HeyDJ is a voice controlled assistant for Spotify. Just say the phrase "Hey DJ" 
 
 ## Prerequisites
 
-- Python version >=3.8,<3.12
+- Python version >=3.9,<3.12
 - Spotify premium
 - OpenAI API Key
 - Picovoice account
